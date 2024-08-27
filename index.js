@@ -21,6 +21,7 @@
             });
             if (resp && resp.status === 200 && resp.data && resp.data.length) {
                 latestVer = resp.data[0];
+                console.log(`Latest: ${latestVer.tag_name}`);
             }
             else {
                 console.error(`Failed to get latest release: ${resp}`);
@@ -42,7 +43,7 @@
     app.get('/api2/version.php', async (req, res) => {
         if ('v' in req.query && 'platform' in req.query && VERCHECK.test(req.query.v)) {
             const v = req.query.v.split('-')[0];
-            console.log(`${v}/${req.query.platform} checking for updates`)
+            console.log(`${req.query.v}/${req.query.platform} checking for updates`);
             const latest = await getLatestVer();
             if (`v${v}` !== latest.tag_name) {
                 const MATCHER = req.query.platform === 'windows' ? 'windows-x64.zip' : '.AppImage';
