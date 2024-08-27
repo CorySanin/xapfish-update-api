@@ -1,0 +1,21 @@
+{
+  "name": "xapfish-update-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "dayjs": "1.11.13",
+    "express": "4.19.2",
+    "octokit": "4.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CorySanin/xapfish-update-api.git"
+  },
+  "author": "Cory Sanin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CorySanin/xapfish-update-api/issues"
+  },
+  "homepage": "https://github.com/CorySanin/xapfish-update-api#readme",
+  "description": "Update server for Xapfish"
+}
