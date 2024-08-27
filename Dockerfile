@@ -13,7 +13,7 @@ COPY . .
 RUN npm ci --only=production && \
   chown -R node .
 
-FROM base
+FROM base as deploy
 
 HEALTHCHECK  --timeout=3s \
   CMD curl --fail http://localhost:8080/healthcheck || exit 1

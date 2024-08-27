@@ -17,7 +17,7 @@ jobs:
       REPOSITORY: ${{ github.event.repository.name }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -38,7 +38,7 @@ jobs:
       - name: Extract metadata for release Docker image
         if: startsWith(github.ref, 'refs/tags/v')
         id: meta
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v5
         with:
           images: |
             ${{ env.GH_REGISTRY }}/${{ env.IMAGE_NAME }}
@@ -51,7 +51,7 @@ jobs:
       - name: Extract metadata for develop Docker image
         if: "!startsWith(github.ref, 'refs/tags/v')"
         id: meta-develop
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v5
         with:
           images: |
             ${{ env.GH_REGISTRY }}/${{ env.IMAGE_NAME }}
