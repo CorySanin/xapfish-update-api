@@ -40,6 +40,10 @@
         res.redirect('https://github.com/CorySanin/Cemu/releases');
     });
 
+    app.get('/discord', (_, res) => {
+        res.redirect(process.env.DISCORD);
+    });
+
     app.get('/api2/version.php', async (req, res) => {
         if ('v' in req.query && 'platform' in req.query && VERCHECK.test(req.query.v)) {
             const v = req.query.v.split('-')[0];
