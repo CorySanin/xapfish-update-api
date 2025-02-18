@@ -1,11 +1,11 @@
 {
   "name": "xapfish-update-api",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "dependencies": {
     "dayjs": "1.11.13",
     "express": "4.21.2",
-    "octokit": "4.0.2"
+    "octokit": "4.1.2"
   },
   "repository": {
     "type": "git",
