@@ -1,6 +1,6 @@
 {
   "name": "xapfish-update-api",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "distribution/index.js",
   "type": "module",
   "dependencies": {
