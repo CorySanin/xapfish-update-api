@@ -1,18 +1,18 @@
 {
   "name": "xapfish-update-api",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "main": "distribution/index.js",
   "type": "module",
   "dependencies": {
     "@octokit/rest": "22.0.1",
-    "dayjs": "1.11.19",
+    "dayjs": "1.11.21",
     "express": "5.2.1"
   },
   "devDependencies": {
     "@sindresorhus/tsconfig": "8.1.0",
     "@types/express": "^5.0.6",
     "@types/node": "^24.1.0",
-    "typescript": "5.9.3"
+    "typescript": "6.0.3"
   },
   "repository": {
     "type": "git",
@@ -26,8 +26,8 @@
   "homepage": "https://github.com/CorySanin/xapfish-update-api#readme",
   "description": "Update server for Xapfish",
   "scripts": {
-    "build": "npx tsc",
-    "watch": "npx tsc --watch",
+    "build": "tsc",
+    "watch": "tsc --watch",
     "start": "node distribution/index.js"
   }
 }

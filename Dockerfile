@@ -4,16 +4,17 @@ FROM base AS build-env
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+RUN apk add --no-cache pnpm
 
-RUN npm install
+RUN --mount=target=/usr/src/app/package.json,source=package.json \
+    --mount=target=/usr/src/app/pnpm-lock.yaml,source=pnpm-lock.yaml \
+  pnpm install
 
-COPY . .
+COPY --link . .
 
-RUN npm run build
+RUN pnpm run build
 
-RUN npm ci --only=production && \
-  chown -R node .
+RUN pnpm install --prod
 
 FROM base AS deploy
 
@@ -26,7 +27,7 @@ WORKDIR /usr/src/app
 
 RUN apk add --no-cache curl
 
-COPY --from=build-env /usr/src/app /usr/src/app
+COPY --from=build-env --chown=node:node /usr/src/app /usr/src/app
 
 USER node
 
